@@ -2,6 +2,7 @@ package com.champlain.oop2assignment3;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,8 +20,8 @@ public class Deck extends CardCollection implements CardSource {
     private final List<Card> aCards = new ArrayList<>();
 
     /**
-     * Constructs a new Deck containing all standard playing cards.
-     * The deck is initialized with one of each rank and suit combination.
+     * Constructs a new Deck containing all standard playing cards. The deck is
+     * initialized with one of each rank and suit combination.
      */
     public Deck() {
         for (Rank currentRank : Rank.values()) {
@@ -28,6 +29,10 @@ public class Deck extends CardCollection implements CardSource {
                 this.aCards.add(new Card(currentRank, currentSuit));
             }
         }
+    }
+
+    public void sort(Comparator<Card> comparator) {
+        Collections.sort(this.aCards, comparator);
     }
 
     /**
@@ -38,7 +43,7 @@ public class Deck extends CardCollection implements CardSource {
     }
 
     public Card draw() {
-        int last = this.aCards.size()-1;
+        int last = this.aCards.size() - 1;
         Card myCard = this.aCards.get(last);
         this.aCards.remove(last);
         return myCard;
