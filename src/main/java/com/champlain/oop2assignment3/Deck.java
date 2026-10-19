@@ -19,6 +19,9 @@ public class Deck extends CardCollection implements CardSource {
      */
     private final List<Card> aCards = new ArrayList<>();
 
+    /**
+     * Singleton instance of the Deck class.
+     */
     private static final Deck aInstance = new Deck();
 
     /**
@@ -33,10 +36,21 @@ public class Deck extends CardCollection implements CardSource {
         }
     }
 
+    /**
+     * Returns the singleton instance of the Deck class.
+     *
+     * @return the singleton instance of the Deck
+     */
     public static Deck getInstance() {
         return aInstance;
     }
 
+    /**
+     * Sorts the cards in this deck using the specified comparator.
+     *
+     * @param comparator the comparator to determine the order of the cards
+     * @author Owen Huxter
+     */
     public void sort(Comparator<Card> comparator) {
         Collections.sort(this.aCards, comparator);
     }
@@ -48,6 +62,12 @@ public class Deck extends CardCollection implements CardSource {
         Collections.shuffle(this.aCards);
     }
 
+    /**
+     * Draws a card from the top of the deck. The drawn card is removed from the
+     * deck.
+     *
+     * @return the drawn card
+     */
     @Override
     public Card draw() {
         int last = this.aCards.size() - 1;
@@ -56,6 +76,11 @@ public class Deck extends CardCollection implements CardSource {
         return myCard;
     }
 
+    /**
+     * Checks if the deck is empty.
+     *
+     * @return true if the deck is empty, false otherwise
+     */
     @Override
     public boolean isEmpty() {
         return this.aCards.isEmpty();
