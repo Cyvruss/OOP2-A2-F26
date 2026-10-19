@@ -56,7 +56,7 @@ public class DeckController {
     /**
      * The deck of cards being managed by this controller.
      */
-    private final Deck aDeck = new Deck();
+    private final Deck aDeck = Deck.getInstance();
 
     /**
      * The hand of cards being managed by this controller.
@@ -96,17 +96,15 @@ public class DeckController {
             selectionErrorAlert.showAndWait();
         } else {
             switch (choice) {
-            case "Reverse Rank First":
-                // TODO: Replace the following line of code.
-                this.aDeckTextArea.setText("This does not sort by reverse rank first yet.");
-                break;
-            case "Reverse Suit First":
+            case "Reverse Rank First" -> {
+                //this.aDeck.sort(new ReverseRankFirstComparator());
+                this.aDeckTextArea.setText(this.aDeck.toString());
+            }
+            case "Reverse Suit First" -> {
                 this.aDeck.sort(new ReverseSuitFirstComparator());
                 this.aDeckTextArea.setText(this.aDeck.toString());
-                break;
-            default:
-                this.aDeckTextArea.setText("This should not happen! You messed up.");
-                break;
+            }
+            default -> this.aDeckTextArea.setText("This should not happen! You messed up.");
             }
         }
     }
