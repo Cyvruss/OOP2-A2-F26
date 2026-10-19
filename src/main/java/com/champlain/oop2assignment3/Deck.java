@@ -19,16 +19,22 @@ public class Deck extends CardCollection implements CardSource {
      */
     private final List<Card> aCards = new ArrayList<>();
 
+    private static final Deck aInstance = new Deck();
+
     /**
      * Constructs a new Deck containing all standard playing cards. The deck is
      * initialized with one of each rank and suit combination.
      */
-    public Deck() {
+    private Deck() {
         for (Rank currentRank : Rank.values()) {
             for (Suit currentSuit : Suit.values()) {
                 this.aCards.add(new Card(currentRank, currentSuit));
             }
         }
+    }
+
+    public static Deck getInstance() {
+        return aInstance;
     }
 
     public void sort(Comparator<Card> comparator) {
@@ -42,6 +48,7 @@ public class Deck extends CardCollection implements CardSource {
         Collections.shuffle(this.aCards);
     }
 
+    @Override
     public Card draw() {
         int last = this.aCards.size() - 1;
         Card myCard = this.aCards.get(last);
@@ -49,6 +56,7 @@ public class Deck extends CardCollection implements CardSource {
         return myCard;
     }
 
+    @Override
     public boolean isEmpty() {
         return this.aCards.isEmpty();
     }
@@ -58,6 +66,7 @@ public class Deck extends CardCollection implements CardSource {
      *
      * @return an iterator for the cards
      */
+    @Override
     public Iterator<Card> iterator() {
         return Collections.unmodifiableList(this.aCards).iterator();
     }
