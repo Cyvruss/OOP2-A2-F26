@@ -2,6 +2,7 @@ package com.champlain.oop2assignment3;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,6 +29,10 @@ public class Deck extends CardCollection implements CardSource {
                 this.aCards.add(new Card(currentRank, currentSuit));
             }
         }
+    }
+
+    public void sort(Comparator<Card> comparator) {
+        Collections.sort(this.aCards, comparator);
     }
 
     /**
