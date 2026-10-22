@@ -44,6 +44,12 @@ public class Card {
         return this.aSuit;
     }
 
+    /**
+     * Checks whether two cards are equal.
+     *
+     * @param pObject object to compare with this card
+     * @return true if the objects are the same card, false if they're different
+     */
     @Override
     public boolean equals(Object pObject) {
         if (this == pObject) {
