@@ -44,6 +44,17 @@ public class Card {
         return this.aSuit;
     }
 
+    @Override
+    public boolean equals(Object pObject) {
+        if (this == pObject) {
+            return true;
+        }
+        if (!(pObject instanceof Card other)) {
+            return false;
+        }
+        return this.aRank == other.aRank
+                && this.aSuit == other.aSuit;
+    }
     /**
      * Returns a string representation of this card.
      *
