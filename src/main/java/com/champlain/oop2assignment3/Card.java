@@ -2,7 +2,9 @@ package com.champlain.oop2assignment3;
 
 /**
  * Represents a playing card with a specific suit and rank.
- * @implNote This class is immutable, meaning that once a card is created, its suit and rank cannot be changed.
+ * 
+ * @implNote This class is immutable, meaning that once a card is created, its
+ * suit and rank cannot be changed.
  */
 public class Card {
     /**
@@ -21,7 +23,7 @@ public class Card {
      * @param pRank the rank of the card (e.g., Ace, 2, 3, ..., King)
      * @param pSuit the suit of the card (e.g., Hearts, Diamonds, Clubs, Spades)
      */
-    public Card (Rank pRank, Suit pSuit) {
+    public Card(Rank pRank, Suit pSuit) {
         this.aRank = pRank;
         this.aSuit = pSuit;
     }

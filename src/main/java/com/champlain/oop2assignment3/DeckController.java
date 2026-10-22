@@ -7,7 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 /**
- * Controller class for managing the deck and hand of cards in the user interface.
+ * Controller class for managing the deck and hand of cards in the user
+ * interface.
  * <p>
  * This class handles user interactions with the deck, including shuffling,
  * sorting, scoring, and drawing cards. It updates the UI components to reflect
@@ -40,7 +41,8 @@ public class DeckController {
     private ChoiceBox<String> aScoreStrategyChoiceBox;
 
     /**
-     * Label for displaying the current score based on the selected scoring strategy.
+     * Label for displaying the current score based on the selected scoring
+     * strategy.
      */
     @FXML
     private Label aScoreLabel;
@@ -94,17 +96,15 @@ public class DeckController {
             selectionErrorAlert.showAndWait();
         } else {
             switch (choice) {
-                case "Reverse Rank First":
-                    this.aDeck.sort(new ReverseRankFirstComparator());
-                    this.aDeckTextArea.setText(this.aDeck.toString());
-                    break;
-                case "Reverse Suit First":
-                    // TODO: Replace the following line of code.
-                    this.aDeckTextArea.setText("This does not sort by reverse suit first yet.");
-                    break;
-                default:
-                    this.aDeckTextArea.setText("This should not happen! You messed up.");
-                    break;
+            case "Reverse Rank First" -> {
+                this.aDeck.sort(new ReverseRankFirstComparator());
+                this.aDeckTextArea.setText(this.aDeck.toString());
+            }
+            case "Reverse Suit First" -> {
+                this.aDeck.sort(new ReverseSuitFirstComparator());
+                this.aDeckTextArea.setText(this.aDeck.toString());
+            }
+            default -> this.aDeckTextArea.setText("This should not happen! You messed up.");
             }
         }
     }
