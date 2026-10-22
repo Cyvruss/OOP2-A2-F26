@@ -12,18 +12,19 @@ public class ReverseRankFirstComparator implements Comparator<Card> {
      * Compares two cards by their rank in descending order.
      * If their ranks are equal, compares their suits in ascending order.
      *
-     * @param card1 the first card to compare
-     * @param card2 the second card to compare
+     * @param pCard1 the first card to compare
+     * @param pCard2 the second card to compare
      * @return a negative integer if card1 should come before card2,
      *         a positive integer if card1 should come after card2,
      *         or zero if both cards have the same rank and suit
+     * @author Jack Hagar
      */
     @Override
-    public int compare(Card card1, Card card2) {
-        int rankCompare = card2.getRank().compareTo(card1.getRank());
+    public int compare(Card pCard1, Card pCard2) {
+        int rankCompare = pCard2.getRank().compareTo(pCard1.getRank());
         if (rankCompare != 0) {
             return rankCompare;
         }
-        return card1.getSuit().compareTo(card2.getSuit());
+        return pCard1.getSuit().compareTo(pCard2.getSuit());
     }
 }
