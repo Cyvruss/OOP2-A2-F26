@@ -54,8 +54,8 @@ public class Deck extends CardCollection implements CardSource {
      * @param comparator the comparator to determine the order of the cards
      * @author Owen Huxter
      */
-    public void sort(Comparator<Card> comparator) {
-        Collections.sort(this.aCards, comparator);
+    public void sort(Comparator<Card> pcomparator) {
+        Collections.sort(this.aCards, pcomparator);
     }
 
     /**
