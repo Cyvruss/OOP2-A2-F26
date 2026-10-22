@@ -22,7 +22,7 @@ public class Deck extends CardCollection implements CardSource {
     /**
      * Singleton instance of the Deck class.
      */
-    private static final Deck aInstance = new Deck();
+    private static Deck aInstance;
 
     /**
      * Constructs a new Deck containing all standard playing cards. The deck is
@@ -36,16 +36,15 @@ public class Deck extends CardCollection implements CardSource {
         }
     }
 
-    public void sort(Comparator<Card> comparator) {
-        Collections.sort(this.aCards, comparator);
-    }
-
     /**
      * Returns the singleton instance of the Deck class.
      *
      * @return the singleton instance of the Deck
      */
     public static Deck getInstance() {
+        if (aInstance == null) {
+            aInstance = new Deck();
+        }
         return aInstance;
     }
 
