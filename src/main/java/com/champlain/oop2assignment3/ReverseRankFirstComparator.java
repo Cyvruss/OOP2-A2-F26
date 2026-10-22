@@ -24,6 +24,6 @@ public class ReverseRankFirstComparator implements Comparator<Card> {
         if (rankCompare != 0) {
             return rankCompare;
         }
-        return pCard1.getSuit().compareTo(pCard2.getSuit());
+        return pCard2.getSuit().compareTo(pCard1.getSuit());
     }
 }
